@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EsercitazioneContextDependent</string>
+    <string name="connecting">Connecting...</string>
+    <string name="neear_home">You are near home</string>
+
+</resources>

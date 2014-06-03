@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/danielecampogiani/Developing/Android/EsercitazioneContextDependent/app/build/pre-dexed/debug/classes-07602a42fc759bc98cd1b2b7d71c55100502af90.jar"
+        jar="/Users/danielecampogiani/Developing/Android/EsercitazioneContextDependent/build/exploded-aar/com.google.android.gms/play-services/4.4.52/classes.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="3dfdf1db5ce5ea2999a5dcde8c8e650b02660059"/>
+    <item
+        dex="/Users/danielecampogiani/Developing/Android/EsercitazioneContextDependent/app/build/pre-dexed/debug/support-v4-19.1.0-1188904d1c6beee77a52c512c4cd3f6b8eb48158.jar"
+        jar="/usr/local/Cellar/android-sdk/22.6.2/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="/Users/danielecampogiani/Developing/Android/EsercitazioneContextDependent/app/build/pre-dexed/debug/classes-3653a22a1c1f4e769e86a541af318e4d56372545.jar"
+        jar="/Users/danielecampogiani/Developing/Android/EsercitazioneContextDependent/build/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+
+</pre-dex-items>
