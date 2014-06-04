@@ -65,6 +65,7 @@ public class MainActivity extends Activity implements
 
     @Override
     public void onConnected(Bundle bundle) {
+
         Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
         Location current = locationClient.getLastLocation();
         try {
@@ -132,5 +133,14 @@ public class MainActivity extends Activity implements
             }
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.pause();
+        mediaPlayer.release();
     }
 }
