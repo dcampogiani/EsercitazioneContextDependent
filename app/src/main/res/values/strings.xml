@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">EsercitazioneContextDependent</string>
-    <string name="connecting">Connecting...</string>
+    <string name="connecting">Connecting</string>
     <string name="neear_home">You are near home</string>
+    <string name="play_button_text">Play</string>
+    <string name="pause_button_text">Pause</string>
+    <string name="song_details">Loading details</string>
 
 </resources>

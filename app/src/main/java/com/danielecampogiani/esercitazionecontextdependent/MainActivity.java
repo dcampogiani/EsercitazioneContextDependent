@@ -5,9 +5,12 @@ import android.content.IntentSender;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,18 +27,38 @@ public class MainActivity extends Activity implements
         GooglePlayServicesClient.OnConnectionFailedListener {
 
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-    TextView label;
-    private LocationClient locationClient;
+    TextView labelLocation;
+    TextView labelSong;
+    ImageView imageView;
     Geocoder geocoder;
+    MediaPlayer mediaPlayer;
+    Button playPauseButton;
+    private LocationClient locationClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        label = (TextView)findViewById(R.id.textLabel);
-        label.setText(R.string.connecting);
+        labelLocation = (TextView) findViewById(R.id.locationLabel);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        labelSong = (TextView) findViewById(R.id.song_details);
+        labelLocation.setText(R.string.connecting);
         locationClient = new LocationClient(this, this, this);
         geocoder = new Geocoder(this, Locale.getDefault());
+        mediaPlayer = new MediaPlayer();
+        playPauseButton = (Button) findViewById(R.id.playPauseButton);
+        playPauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.pause();
+                    playPauseButton.setText(R.string.play_button_text);
+                } else {
+                    mediaPlayer.start();
+                    playPauseButton.setText(R.string.pause_button_text);
+                }
+            }
+        });
         locationClient.connect();
 
     }
@@ -54,11 +77,27 @@ public class MainActivity extends Activity implements
                 }
 
                 if (addressString.contains("40123")){//Saragozza
-                    label.setText(R.string.neear_home);
+                    Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.quentin);
+                    imageView.setImageURI(imageUri);
+                    labelLocation.setText(R.string.neear_home);
+                    labelSong.setText("I wanna be - Quentin Hannappe");
+                    Uri songUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.quentin_hannappe_i_wanna_be);
+                    mediaPlayer.setDataSource(this, songUri);
+                    mediaPlayer.prepare();
+                    playPauseButton.setText(R.string.pause_button_text);
+                    mediaPlayer.start();
                 }
 
                 else {
-                    label.setText("You are near "+addressString);
+                    Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.tamara);
+                    imageView.setImageURI(imageUri);
+                    labelLocation.setText("You are near " + addressString);
+                    labelSong.setText("Tamara Laurel - Sweet");
+                    Uri songUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.tamara_laurel_sweet);
+                    mediaPlayer.setDataSource(this, songUri);
+                    mediaPlayer.prepare();
+                    playPauseButton.setText(R.string.pause_button_text);
+                    mediaPlayer.start();
                 }
 
             }
